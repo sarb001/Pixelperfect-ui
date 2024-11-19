@@ -15,7 +15,7 @@ export const Sidebar = () => {
 
 export const Basenav = () => {
   return ( 
-    <div className="grid grid-cols-[2fr,6fr]  gap-[10px] bg-[#353C53] pt-[6px] pb-[6px] pl-3 pr-4">
+    <div className="grid grid-cols-[2fr,6fr]  gap-[10px] bg-[#353C53] pt-[6px] pb-[6px] pl-3 pr-4 rounded-[4px] ">
 
         <div className="flex justify-center items-center"> <Walletimg /> </div>
         
@@ -58,7 +58,7 @@ const AllIcons = [
    { id : 4 ,  icon : <Deliveryimg /> , maintext : 'Delivery' },
    { id : 5 ,  icon : <Marketingimg /> , maintext : 'Marketing' },
    { id : 6 ,  icon : <Analyticsimg /> , maintext : 'Analysis' },
-   { id : 7 ,  icon : <Payoutsimg /> , maintext : 'Payouts' },
+   { id : 7 ,  icon : <Payoutsimg /> , maintext : 'Payouts' , bgcolor : '#ffffff1a' },
    { id : 8 ,  icon : <Discountsimg /> , maintext : 'Discounts' },
    { id : 9 ,  icon : <Audienceimg /> , maintext : 'Audience' },
    { id : 10 ,  icon : <Appearancesimg /> , maintext : 'Appearances' },
@@ -73,7 +73,9 @@ const Pages = () => {
           {AllIcons?.map(i => {
              return(   
                <li key = {i?.id}> 
-               <div className="grid grid-cols-[1fr,3fr] pl-5 pr-3 pt-2 pb-2 gap-3 hover:bg-red-600 cursor-pointer">
+               <div className = "grid grid-cols-[1fr,3fr] pl-5 pr-3 pt-2 pb-2 rounded-[4px]  gap-3 hover:bg-[#ffffff1a] cursor-pointer text-[14px]"
+               style = {{backgroundColor:`${i?.bgcolor}`}}
+               >
                   <div> {i?.icon} </div>
                   <div> {i?.maintext} </div>
                </div>
