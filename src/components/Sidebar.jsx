@@ -1,35 +1,55 @@
 import { IoHomeOutline } from "react-icons/io5";
-import { Analyticsimg, Appearancesimg, Audienceimg, Deliveryimg, Discountsimg, Dropdownimg, Homeimg, Marketingimg , Ordersimg, Payoutsimg, Pluginsimg, Productimg } from "./Images/AllImages";
+import { Analyticsimg, Appearancesimg, Audienceimg, Deliveryimg, Discountsimg, Dropdownimg, Homeimg, Marketingimg , Ordersimg, Payoutsimg, Pluginsimg, Productimg, Walletimg } from "./Images/AllImages";
 import Nishyanimg from '../assets/nishyan.png';
 
 
 export const Sidebar = () => {
     return (
-        <>
+        <div className="flex flex-col gap-6"> 
         <div> <Navtop /> </div>
         <div> <Pages /> </div>
-        </>
+        <div> <Basenav  /> </div>
+        </div>
     )
 }
 
-export const Navtop = () => {
-  return (
-    <div className="grid grid-cols-3">
-        <div> <img src = {Nishyanimg} className="w-8 h-8 rounded-[4px]" />  </div>
+export const Basenav = () => {
+  return ( 
+    <div className="grid grid-cols-[2fr,6fr]  gap-[10px] bg-[#353C53] pt-[6px] pb-[6px] pl-3 pr-4">
 
-         <div>
-          <div> Nishyan </div>
-           <div> <a href = "#"> Visit store </a> </div>
-         </div>
+        <div className="flex justify-center items-center"> <Walletimg /> </div>
+        
+        <div className="grid grid-rows-2">
+            <span> Available credits  </span>
+            <span> 222.10 </span>
+        </div>
 
-         <div>
-           <Dropdownimg />
-         </div>
     </div>
   )
 }
 
 
+
+export const Navtop = () => {
+  return (
+    <div className="grid grid-cols-[6fr,2fr] gap-3">
+
+        <div className="grid grid-cols-2">
+          <div className="flex items-center justify-center"> <img src = {Nishyanimg} className="w-10 h-9 rounded-[4px]" />  </div>
+
+          <div className="flex flex-col gap-1">
+            <div className="text-[15px]"> Nishyan </div>
+            <div className="text-[12px]"> <a href = "#"> Visit store </a> </div>
+          </div>
+
+        </div>
+
+         <div className="flex flex-col justify-center">
+           <Dropdownimg />
+         </div>
+    </div>
+  )
+}
 
 const AllIcons = [
    { id : 1 ,  icon : <Homeimg /> , maintext : 'Home' },
@@ -49,18 +69,18 @@ const AllIcons = [
 const Pages = () => {
   return (
     <>
-        <div> 
           <ul>
           {AllIcons?.map(i => {
              return(   
-               <li key = {i?.id} className="flex flex-row justify-evenly"> 
+               <li key = {i?.id}> 
+               <div className="grid grid-cols-[1fr,3fr] pl-5 pr-3 pt-2 pb-2 gap-3 hover:bg-red-600 cursor-pointer">
                   <div> {i?.icon} </div>
                   <div> {i?.maintext} </div>
+               </div>
                </li>
             )
             })}
           </ul> 
-        </div>
     </>
   )
 }
