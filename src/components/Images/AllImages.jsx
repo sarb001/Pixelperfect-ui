@@ -132,23 +132,39 @@ export const Pluginsimg = () => {
     )
 }
 
+
+    // v 
 export const Dropdownimg = () => {
     return (
         <>
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_113334_13317)">
-<circle cx="20" cy="20" r="20" fill="#E6E6E6"/>
-<path d="M21.1109 25.5021C20.5156 26.1582 19.4844 26.1582 18.8891 25.5021L13.6151 19.689C12.7406 18.7251 13.4245 17.1811 14.726 17.1811L25.274 17.1811C26.5755 17.1811 27.2594 18.7251 26.3849 19.689L21.1109 25.5021Z" fill="#4D4D4D"/>
-</g>
-<defs>
-<clipPath id="clip0_113334_13317">
-<rect width="40" height="40" fill="white"/>
-</clipPath>
-</defs>
+     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.84685 7.22185C3.26727 6.80143 3.92516 6.76321 4.38876 7.10719L4.52157 7.22185L10 12.6997L15.4784 7.22185C15.8988 6.80143 16.5567 6.76321 17.0203 7.10719L17.1532 7.22185C17.5736 7.64227 17.6118 8.30016 17.2678 8.76376L17.1532 8.89657L10.8374 15.2124C10.4169 15.6328 9.75905 15.671 9.29545 15.327L9.16264 15.2124L2.84685 8.89657C2.38438 8.43411 2.38438 7.68431 2.84685 7.22185Z" fill="white"/>
 </svg>
+
         </>
     )
 }
+
+// (v)
+
+export const RoundedDropdown = () => {
+    return (
+        <>
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_113334_13317)">
+            <circle cx="20" cy="20" r="20" fill="#E6E6E6"/>
+            <path d="M21.1109 25.5021C20.5156 26.1582 19.4844 26.1582 18.8891 25.5021L13.6151 19.689C12.7406 18.7251 13.4245 17.1811 14.726 17.1811L25.274 17.1811C26.5755 17.1811 27.2594 18.7251 26.3849 19.689L21.1109 25.5021Z" fill="#4D4D4D"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_113334_13317">
+            <rect width="40" height="40" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </>
+    )
+}
+
 
 export const Questionimg = () => {
     return (
