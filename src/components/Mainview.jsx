@@ -1,4 +1,4 @@
-import { Dropdownimg, Questionimg } from "./Images/AllImages"
+import { Dropdownimg, Questionimg, Whitequestionlogo } from "./Images/AllImages"
 
 
 
@@ -21,7 +21,7 @@ export const Mainview = () => {
 
             </div>
 
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 gap-4">
                 <CardsLayout /> 
             </div>
 
@@ -34,9 +34,9 @@ export const Mainview = () => {
 }
 
 export const CardsData = [
-    { text: "NEXT PAYOUT",price  : "₹2,312.23" , orderscount : 23, date : 'by Today.04:00 PM' , bgcolor : '#146EB4' ,color : 'white' },
-    { text: "PENDING PAYOUTS",price  : "₹92,312.20" , orderscount : 13,},
-    { text: "COMPLETED PAYOUT",price  : "₹23,92,312.19" },
+    { text: "NEXT PAYOUT",price  : "₹2,312.23" , orderscount : '23orders' ,  date : 'by Today.04:00 PM' , bgcolor : '#146EB4' ,color : 'white' },
+    { text: "PENDING PAYOUTS",price  : "₹92,312.20" , orderscount : '13orders' , bgcolor : 'white' ,color : 'black' },
+    { text: "COMPLETED PAYOUT",price  : "₹23,92,312.19"  , bgcolor : 'white' ,color : 'black', },
 ] 
 
 
@@ -46,16 +46,23 @@ export const CardsLayout = () => {
         
             {CardsData?.map(i => {
                 return (
-                    <div key = {i?.text} className="grid grid-rows-2 gap-3 p-5" style = {{backgroundColor : `${i?.bgcolor}` ,color : `${i?.color}` }}> 
+                    <div key = {i?.text} className="grid grid-rows-2 gap-3 p-3  rounded-md " style = {{backgroundColor : `${i?.bgcolor}` ,color : `${i?.color}` }}> 
                        
-                        <div className="grid grid-cols-2 justify-between"> 
-                          <div>  {i?.text}  <Questionimg /> </div>    
-                          <div>    {i?.date}  </div>
+                        <div className="grid grid-cols-2 justify-between">
+
+                         <div className="flex items-center gap-3">
+                           <div className="text-[12px] flex items-center ">  {i?.text} </div>    
+                           <div>   
+                                 {i?.color === 'white' ? <Whitequestionlogo /> : <Questionimg /> }
+                            </div>
+                         </div> 
+
+                          <div className="flex items-center justify-end pr-4 text-[13px]">    {i?.date}  </div>
                         </div>
 
-                        <div className="grid grid-cols-2 justify-between"> 
-                          <div>  {i?.price} </div>    
-                          <div>   {i?.orderscount} orders </div>
+                        <div className="grid grid-cols-2 justify-between items-center"> 
+                          <div className="text-2xl">  {i?.price} </div>    
+                          <div className="flex justify-end items-center pr-5"> {i?.orderscount ? `${i?.orderscount}>` : ""}  </div>
                         </div>
 
                     </div>
