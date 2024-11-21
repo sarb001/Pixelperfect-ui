@@ -5,7 +5,7 @@ import Nishyanimg from '../assets/nishyan.png';
 
 export const Sidebar = () => {
     return (
-        <div className="flex flex-col gap-6"> 
+        <div className="flex flex-col gap-7"> 
         <div> <Navtop /> </div>
         <div> <Pages /> </div>
         <div> <Basenav  /> </div>
