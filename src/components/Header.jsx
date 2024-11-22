@@ -8,7 +8,7 @@ export const Header = () => {
                 <div className="flex items-center text-xl"> Payouts  </div>
                 <div className="flex gap-3"> 
                     <div className="pt-1 flex justify-center items-center">  <Questionimg />  </div>
-                    <div className="pt-3 text-[14px] flex justify-center">   How it works   </div>
+                    <div className="pt-3 text-[14px] flex justify-center">   How it work   </div>
                 </div>
             </div>
 
