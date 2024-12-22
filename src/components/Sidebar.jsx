@@ -73,10 +73,10 @@ const Pages = () => {
           {AllIcons?.map(i => {
              return(   
                <li key = {i?.id}> 
-               <div className = "grid grid-cols-[1fr,3fr] pl-5 pr-3 pt-2 pb-2 rounded-[4px]  gap-3 hover:bg-[#ffffff1a] cursor-pointer text-[14px]"
+               <div className = "grid grid-cols-[1fr,3fr] pl-2 pr-3 pt-2 pb-2 rounded-[4px]  gap-3 hover:bg-[#ffffff1a] cursor-pointer text-[14px]"
                style = {{backgroundColor:`${i?.bgcolor}`}}
                >
-                  <div> {i?.icon} </div>
+                  <div className="flex justify-center "> {i?.icon} </div>
                   <div> {i?.maintext} </div>
                </div>
                </li>

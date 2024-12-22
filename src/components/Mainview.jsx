@@ -1,6 +1,5 @@
 import { Downloadimg, Dropdownimg, Greensuccessimg, Magnifyglassicon, Processingimg, Questionimg, TwosidedArrowimg, Whitequestionlogo } from "./Images/AllImages"
-
-
+import { IoIosArrowForward } from "react-icons/io";
 
 export const Mainview = () => {
     return (
@@ -102,9 +101,9 @@ export const TableData = [
 
 
 export const CardsData = [
-    { text: "NEXT PAYOUT",price  : "₹2,312.23" , orderscount : '23orders' ,  date : 'by Today.04:00 PM' , bgcolor : '#146EB4' ,color : 'white' },
-    { text: "PENDING PAYOUTS",price  : "₹92,312.20" , orderscount : '13orders' , bgcolor : 'white' ,color : 'black' },
-    { text: "COMPLETED PAYOUT",price  : "₹23,92,312.19"  , bgcolor : 'white' ,color : 'black', },
+    { text: "Next Payout",price  : "₹2,312.23" , orderscount : '23 orders' ,payoutdate : 'Next payout date:' , date : 'Today.04:00 PM' , bgcolor : '#146EB4' ,color : 'white' },
+    { text: "Amount Pending",price  : "₹92,312.20" , orderscount : '13 orders' , bgcolor : 'white' ,color : 'black' },
+    { text: "Amount Processed" ,price  : "₹23,92,312.19"  , bgcolor : 'white' ,color : 'black', },
 ] 
 
 
@@ -114,28 +113,81 @@ export const CardsLayout = () => {
         
             {CardsData?.map(i => {
                 return (
-                    <div key = {i?.text} className="grid grid-rows-2 gap-3 p-3 pt-0  rounded-md " style = {{backgroundColor : `${i?.bgcolor}` ,color : `${i?.color}` }}> 
-                       
-                        <div className="grid grid-cols-2 justify-between">
+                    <>
+                     <div>
+                        <div className="bg-[#146EB4] rounded-lg text-white" > 
+                            <div className="px-4 py-8">
+                                
+                                <div className="grid grid-cols-[3fr,5fr] justify-between"> 
+                                    <div> Next Payout </div>
+                                    <div className="flex items-center"> <Questionimg /> </div>
+                                </div>
 
-                         <div className="flex items-center gap-3">
-                           <div className="text-[12px] flex items-center ">  {i?.text} </div>    
-                           <div>   
-                                 {i?.color === 'white' ? <Whitequestionlogo /> : <Questionimg /> }
+                                <div className="grid justify-between grid-cols-[6fr,1fr] pt-4">
+                                    <div className="text-2xl"> ₹2312.23 </div>
+
+                                    <div className="flex items-center"> 
+                                        <div className="border-b-[1px] border-white flex justify-end"> 
+                                            23orders 
+                                        </div>
+                                        <div className="flex items-center pt-1"> <IoIosArrowForward /> </div>
+                                    </div>
+                                </div>
+                                
                             </div>
-                         </div> 
-
-                          <div className="flex items-center justify-end pr-4 text-[13px]">    {i?.date}  </div>
+                            
+                         {i?.payoutdate ? (
+                             <div className="px-4 py-2 text-[16px] grid grid-cols-2 justify-between bg-[#0E4F82] text-white rounded-md "> 
+                            <div> Next payout date: </div>
+                            <div> Today, 04:00PM </div>
                         </div>
-
-                        <div className="grid grid-cols-2 justify-between items-center"> 
-                          <div className="text-2xl">  {i?.price} </div>    
-                          <div className="flex justify-end items-center pr-5"> {i?.orderscount ? `${i?.orderscount}>` : ""}  </div>
+                        ) : ""}
                         </div>
-
-                    </div>
+                     </div>
+                    </>
                 )
             })}
         </>
     )
 }
+
+
+
+
+
+            {/*                         
+                                <div key = {i?.text} className="grid grid-rows-[3fr,1fr] justify-between gap-3  rounded-md " style = {{backgroundColor : `${i?.bgcolor}` ,color : `${i?.color}` }}> 
+                                    
+                                    <div>
+            
+                                        <div className="grid grid-cols-2 justify-between">
+                                            <div className="flex items-center gap-3">
+                                            <div className="text-[12px] flex items-center ">  {i?.text} </div>    
+                                            <div>   
+                                                    {i?.color === 'white' ? <Whitequestionlogo /> : <Questionimg /> }
+                                                </div>
+                                            </div> 
+                                        </div>
+            
+                                        <div className="grid grid-cols-2 justify-between items-center"> 
+                                            <div className="text-2xl">  {i?.price} </div>    
+                                            <div className="flex justify-end items-center pr-5"> {i?.orderscount ? `${i?.orderscount}>` : ""}  </div>
+                                        </div>
+            
+                                    </div>
+            
+                                            {i?.payoutdate ? ( 
+                                                <div className="px-0">
+                                                    <div className="grid grid-cols-2 justify-between bg-[#0E4F82] px-4 py-2 text-white">
+                                                        <div className="flex items-center justify-start pr-4 text-[13px]">  
+                                                            {i?.payoutdate}  
+                                                        </div>
+                                                        <div className="flex items-center justify-end pr-4 text-[13px]">  
+                                                            {i?.date}  
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            ) : ""}
+            
+                                </div>
+                                        */}

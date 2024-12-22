@@ -8,9 +8,11 @@ function App() {
 
   return (
    <>
-      <div className = "grid grid-cols-[1.2fr,5.5fr]" >
-        <div className='bg-[#1E2640] pt-4 pb-4 pl-[10px] pr-[10px] text-white h-full '>  <Sidebar /> </div>
-        <div>
+      <div className = "flex grid-cols-[1.2fr,5.5fr]" >
+        <div className = 'bg-[#1E2640] pt-4 pb-4 pl-[10px] pr-[10px] text-white h-screen fixed w-56 '>
+            <Sidebar />
+          </div>
+        <div className = 'ml-56 overflow-y-auto flex-1'> 
            <Header />
            <Mainview />
         </div>
