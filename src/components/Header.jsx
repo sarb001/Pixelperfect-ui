@@ -14,7 +14,7 @@ export const Header = () => {
 
             <div className="grid grid-cols-[1fr,7fr] items-center bg-[#F2F2F2] rounded-md pt-[9px] pb-[9px] pl-4 pr-4">
                  <div> <Magnifyglassicon /> </div> 
-                <input type = "text" placeholder="Search features,tutorials,etc." style = {{backgroundColor:'#F2F2F2'}} />
+                <input type = "text" placeholder="Search features,tutorials,etc." className="focus:ring-0 focus:outline-none bg-[#F2F2F2] " />
             </div>
 
             <div className="flex gap-3 justify-end">

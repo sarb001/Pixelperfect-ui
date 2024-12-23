@@ -33,7 +33,7 @@ export const Mainview = () => {
                         
                         <div className="grid grid-cols-[1fr,7fr] items-center bg-[#F2F2F2] border-[#d9d9d9] border-[1px] rounded-md pt-[9px] pb-[9px] pl-4 pr-4">
                             <div> <Magnifyglassicon /> </div> 
-                            <input type = "text" placeholder="Order ID or transaction ID" style = {{backgroundColor:'#F2F2F2'}} />
+                            <input type = "text" placeholder="Order ID or transaction ID" className="focus:ring-0 focus:outline-none bg-[#F2F2F2] "  />
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 justify-center items-end ">
@@ -92,18 +92,20 @@ export const Mainview = () => {
 export const TableData = [
     { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "Today,08:45 PM", Orderamount : "1125.00" },
     { Ordervalue : "#281209" ,status : 'Processing', transid : "13163445747", rfdate : "Yesterday,3:00 PM", Orderamount : "1125.00" },
-    { Ordervalue : "#281209" , status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,03:00 PM", Orderamount : "1125.00" },
-    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,03:00 PM", Orderamount : "1125.00" },
-    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,03:00 PM", Orderamount : "1125.00" },
-    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,03:00 PM", Orderamount : "1125.00" },
+    { Ordervalue : "#281209" , status : 'Successful', transid : "13163445747", rfdate : "11 Jul 2023,03:00 PM", Orderamount : "1125.00" },
+    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,04:00 AM", Orderamount : "1125.00" },
+    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,04:00 AM", Orderamount : "1125.00" },
+    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,05:00 AM", Orderamount : "1125.00" },
+    { Ordervalue : "#281209" ,status : 'Processing', transid : "13163445747", rfdate : "13 Jul 2023,03:00 PM", Orderamount : "1125.00" },
+    { Ordervalue : "#281209" ,status : 'Successful', transid : "13163445747", rfdate : "12 Jul 2023,05:00 PM", Orderamount : "1125.00" },
 ]
 
 
 
 export const CardsData = [
-    { text: "Next Payout",price  : "₹2,312.23" , orderscount : '23 orders' ,payoutdate : 'Next payout date:' , date : 'Today.04:00 PM' , bgcolor : '#146EB4' ,color : 'white' },
-    { text: "Amount Pending",price  : "₹92,312.20" , orderscount : '13 orders' , bgcolor : 'white' ,color : 'black' },
-    { text: "Amount Processed" ,price  : "₹23,92,312.19"  , bgcolor : 'white' ,color : 'black', },
+    { text: "Next Payout",price  : "₹2,312.23" , orderscount : '23 orders' ,payoutdate : 'Next payout date:' , date : 'Today.04:00 PM' , bgcolor : 'bg-[#146EB4]' , color : 'text-white' },
+    { text: "Amount Pending",price  : "₹92,312.20" , orderscount : '13 orders' , borderbottom : 'border-black' },
+    { text: "Amount Processed" ,price  : "₹23,92,312.19" },
 ] 
 
 
@@ -115,31 +117,38 @@ export const CardsLayout = () => {
                 return (
                     <>
                      <div>
-                        <div className="bg-[#146EB4] rounded-lg text-white" > 
+                        <div className  = {` ${i?.bgcolor ? "bg-[#146EB4] text-white" : "bg-white text-black"} rounded-lg `} > 
                             <div className="px-4 py-8">
                                 
-                                <div className="grid grid-cols-[3fr,5fr] justify-between"> 
-                                    <div> Next Payout </div>
-                                    <div className="flex items-center"> <Questionimg /> </div>
-                                </div>
+                                <div className="grid grid-rows-[1fr,1fr] gap-1 justify-between ">
 
-                                <div className="grid justify-between grid-cols-[6fr,1fr] pt-4">
-                                    <div className="text-2xl"> ₹2312.23 </div>
-
-                                    <div className="flex items-center"> 
-                                        <div className="border-b-[1px] border-white flex justify-end"> 
-                                            23orders 
+                                    <div className="grid grid-cols-1">
+                                        <div className="flex items-center">
+                                            <div> {i?.text}</div>
+                                            <div className="flex items-center pl-2">  <Questionimg className = {i?.color} />  </div>
                                         </div>
-                                        <div className="flex items-center pt-1"> <IoIosArrowForward /> </div>
                                     </div>
+
+                                    <div className="grid justify-between grid-cols-[5fr,2fr] pt-1 ">
+                                    <div className="text-2xl"> {i?.price} </div>
+                                    {i?.orderscount ? (
+                                                <div className="flex items-center justify-end text-[14px] "> 
+                                                    <div className= {` ${i?.borderbottom ? "border-b-[1px] border-black" : " border-b-[1px] border-white"} flex justify-end`}> 
+                                                        {i?.orderscount} 
+                                                    </div>
+                                                    <div className="flex items-center pt-1"> <IoIosArrowForward /> </div>
+                                                </div>
+                                    ) : ""}
+                                   </div>
+                                    
                                 </div>
                                 
                             </div>
                             
                          {i?.payoutdate ? (
-                             <div className="px-4 py-2 text-[16px] grid grid-cols-2 justify-between bg-[#0E4F82] text-white rounded-md "> 
+                             <div className="px-4 py-2 text-[14px] grid grid-cols-2 justify-between bg-[#0E4F82] text-white rounded-md "> 
                             <div> Next payout date: </div>
-                            <div> Today, 04:00PM </div>
+                            <div className="flex justify-end"> {i?.date} </div>
                         </div>
                         ) : ""}
                         </div>
@@ -150,44 +159,3 @@ export const CardsLayout = () => {
         </>
     )
 }
-
-
-
-
-
-            {/*                         
-                                <div key = {i?.text} className="grid grid-rows-[3fr,1fr] justify-between gap-3  rounded-md " style = {{backgroundColor : `${i?.bgcolor}` ,color : `${i?.color}` }}> 
-                                    
-                                    <div>
-            
-                                        <div className="grid grid-cols-2 justify-between">
-                                            <div className="flex items-center gap-3">
-                                            <div className="text-[12px] flex items-center ">  {i?.text} </div>    
-                                            <div>   
-                                                    {i?.color === 'white' ? <Whitequestionlogo /> : <Questionimg /> }
-                                                </div>
-                                            </div> 
-                                        </div>
-            
-                                        <div className="grid grid-cols-2 justify-between items-center"> 
-                                            <div className="text-2xl">  {i?.price} </div>    
-                                            <div className="flex justify-end items-center pr-5"> {i?.orderscount ? `${i?.orderscount}>` : ""}  </div>
-                                        </div>
-            
-                                    </div>
-            
-                                            {i?.payoutdate ? ( 
-                                                <div className="px-0">
-                                                    <div className="grid grid-cols-2 justify-between bg-[#0E4F82] px-4 py-2 text-white">
-                                                        <div className="flex items-center justify-start pr-4 text-[13px]">  
-                                                            {i?.payoutdate}  
-                                                        </div>
-                                                        <div className="flex items-center justify-end pr-4 text-[13px]">  
-                                                            {i?.date}  
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            ) : ""}
-            
-                                </div>
-                                        */}
